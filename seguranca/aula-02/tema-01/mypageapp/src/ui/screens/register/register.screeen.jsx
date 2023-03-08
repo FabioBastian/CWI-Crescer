@@ -5,8 +5,13 @@ import { useGlobalUser } from "../../../context";
 import { Button, Container, Form, Input, Label } from "../../components";
 import "./index.css";
 
-export function LoginScreen() {
-  const [formInput, setFormInput] = useState({ email: "", password: "" });
+export function RegisterScreen() {
+  const [formInput, setFormInput] = useState({
+    nome: "",
+    email: "",
+    imagem: "",
+    password: "",
+  });
   const { loginUser, hasError } = useLogin();
   const navigate = useNavigate();
   const [user] = useGlobalUser();
@@ -19,7 +24,12 @@ export function LoginScreen() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await loginUser(formInput.email, formInput.password);
+    await loginUser(
+      formInput.nome,
+      formInput.email,
+      formInput.imagem,
+      formInput.password
+    );
   }
 
   function onActionClickNavigate(where) {
@@ -33,14 +43,30 @@ export function LoginScreen() {
   }, [user, navigate]);
 
   return (
-    <Container additionalClass="login-screen">
+    <Container additionalClass="register-screen">
       <Form className="form" onHandleChange={handleSubmit}>
-        <Label forId="username" content="User Name" />
+        <Label forId="nome" content="Nome" />
         <Input
-          id="username"
-          name="email"
+          id="nome"
+          name="nome"
           type="text"
+          value={formInput.nome}
+          onHandleChange={(e) => handleChange(e)}
+        />
+        <Label forId="email" content="Email" />
+        <Input
+          id="email"
+          name="email"
+          type="email"
           value={formInput.email}
+          onHandleChange={(e) => handleChange(e)}
+        />
+        <Label forId="imagem" content="Imagem" />
+        <Input
+          id="imagem"
+          name="imagem"
+          type="text"
+          value={formInput.imagem}
           onHandleChange={(e) => handleChange(e)}
         />
         <Label forId="password" content="Password" />
@@ -52,11 +78,11 @@ export function LoginScreen() {
           onHandleChange={(e) => handleChange(e)}
         />
         <span className="warring">{hasError ? hasError : null}</span>
-        <Button children="Login" />
+        <Button children="Register" />
       </Form>
       <Button
-        children="Register"
-        onActionClick={() => onActionClickNavigate("/register")}
+        children="Login"
+        onActionClick={() => onActionClickNavigate("/")}
       />
     </Container>
   );
