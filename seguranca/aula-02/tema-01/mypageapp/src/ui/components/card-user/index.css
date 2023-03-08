@@ -1,0 +1,19 @@
+.card-user-container {
+  width: 55%;
+  height: 12em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user-info-box {
+  height: 11em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.user-img {
+  height: 11em;
+  width: 12em;
+  object-fit: cover;
+}

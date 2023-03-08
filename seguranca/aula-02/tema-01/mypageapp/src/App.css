@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-family: "Roboto";
+  font-style: normal;
+}
+.warring {
+  color: red;
+  font-weight: bold;
+}
+::-webkit-scrollbar-track {
+  background-color: rgb(183 183 183);
+}
+::-webkit-scrollbar {
+  width: 6px;
+  background: rgb(183 183 183);
+}
+::-webkit-scrollbar-thumb {
+  background: #dad7d7;
+}

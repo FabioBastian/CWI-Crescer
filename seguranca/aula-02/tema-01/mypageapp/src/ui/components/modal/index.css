@@ -1,0 +1,21 @@
+.container-modal {
+  height: 30em;
+  width: 35em;
+  padding: 0.5em 0.5em 4em 0.5em;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: bisque;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.modal-close-button {
+  position: absolute;
+  bottom: 1em;
+}
